@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-# -*- coding:utf-8 -*_
+# -*- coding:utf-8 -*-
 
 class Student(object):
-    def __init__(self):
+    def __init__(self,name):
+        self.__name = name
         self.__score = 0
     def get_score(self):
         return self.__score
@@ -35,13 +36,30 @@ class Student(object):
     @name.getter
     def name(self):
         return self.__name
+
+    def __str__(self):
+        return 'Student object(name:%s)' %self.__name
+
+    __repr = __str__
+
+    def __getattr__(self,attr):
+        if attr == 'nation':
+            return 'CHINA'
+        raise AttributeError('\'Stuent\' object has no attribute \'%s \'' %attr)
+            
     
-s = Student()
+s = Student('Mike')
 s.name = "peter yang"
 print(s.name)
 print(s.get_score())
 s.set_score(60)
 print(s.get_score())
-s.name = 60
+
+
+print(Student("peter"))
+print(s)
+
+print(s.nation)
+print(s.genda)
 
                              
