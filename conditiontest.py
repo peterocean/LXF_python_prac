@@ -1,15 +1,23 @@
-# -*- coding:utf-8 -*-
+#/bin/bash python3
 
-height = 1.75
-weight = 80.5
-bmi = weight/(height*height)
+#-*- coding:utf-8 -*-
 
-if bmi < 18.5:
-    print u'过轻'
-elif bmi <= 25:
-    print u'正常'
-elif bmi <= 32:
-    print u'肥胖'
+
+height = (float)(input("height: "))
+weight = (float)(input("weight:"))
+
+if height != 0:
+    bmi = weight/(height*height)
 else:
-    print u'严重肥胖'
+    print("invalid height:%d", height)
 
+if bmi > 32:
+    print("严重肥胖")
+elif bmi >= 28:
+    print("肥胖")
+elif bmi >= 25:
+    print("过重")
+elif bmi >= 18.5:
+     print("正常")
+else:
+    print("过轻")
